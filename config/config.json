@@ -1,0 +1,6 @@
+{
+  "user": "root",
+  "ip": "192.168.1.20",
+  "banco": "mypass",
+  "dados": ["teste1", "teste2", "teste3"]
+}
