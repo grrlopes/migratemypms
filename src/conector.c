@@ -9,14 +9,14 @@
 #include "conector.h"
 
 struct credencial{
-  char *login,
+  const char *login,
   *addrs,
   *senha,
   *schema;
 };
 
-Credencial *credencial(char *login,
-char *addrs, char *senha, char *schema){
+Credencial *credencial(const char *login,
+const char *addrs, const char *senha, const char *schema){
   Credencial *ptr = (Credencial*) malloc(sizeof(Credencial));
   if(ptr != NULL){
     ptr->login = login;

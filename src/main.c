@@ -10,12 +10,20 @@
 #include "conector.h"
 #include "seletor.h"
 
+typedef struct main_temp{
+  const char *login,
+  *addrs,
+  *senha,
+  *schema;
+} main_temp_t;
+
 int main(int argc, char *argv[]){
   char *filess = "config/config.json";
   char *bufferr = NULL;
   int tipo_valor;
   struct json_object *json_objeto, *tmp, *aux_json;
-  char *bbb = NULL;
+
+  main_temp_t *temp_crendent = (main_temp_t*) malloc(sizeof(main_temp_t));;
 
   get_arquivo_ext(filess, &bufferr);
 
@@ -35,8 +43,13 @@ int main(int argc, char *argv[]){
     switch(tipo_valor){
       case json_type_string:
         if(strcmp("user", key) == 0){
-          bbb = json_object_get_string(val);
-          printf("%s --- %s\n", key, json_object_get_string(val));
+          temp_crendent->login = json_object_get_string(val);
+        }else if(strcmp("ip", key) == 0){
+          temp_crendent->addrs = json_object_get_string(val);
+        }else if(strcmp("banco", key) == 0){
+          temp_crendent->schema = json_object_get_string(val);
+        }else{
+          temp_crendent->senha = json_object_get_string(val);
         }
         break;
       case json_type_array:
@@ -44,8 +57,9 @@ int main(int argc, char *argv[]){
     }
 	}
 
-  Credencial *credent = credencial(bbb, "192.168.1.20", "123456", "mypass");
-
+  Credencial *credent = credencial(temp_crendent->login,
+    temp_crendent->addrs, temp_crendent->senha, temp_crendent->schema);
+  free(temp_crendent);
   MYSQL *cnx = conectar(credent);
   const char *select = "select * from home limit 1";
   MYSQL_RES *result = seletor(cnx, select);

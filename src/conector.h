@@ -4,7 +4,7 @@
  **/
 typedef struct credencial Credencial;
 
-Credencial *credencial(char *login, char *addrs, char *senha, char *schema);
+Credencial *credencial(const char *login, const char *addrs, const char *senha, const char *schema);
 
 MYSQL *conectar(Credencial *ptr);
 
