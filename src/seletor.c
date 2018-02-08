@@ -1,7 +1,13 @@
 /**
- * @autor  Gabriel Lopes
- * @email   gabrielrrlopes@gmail.com
- **/
+* seletor.c
+*
+* Purpose: Funções retrieve dos dados da base.
+*
+* Author: Gabriel Lopes <gabrielrrlopes@gmail.com>
+*
+* Date: Fevereiro 2018
+*
+**/
 #include <stdio.h>
 #include <mysql/mysql.h>
 #include "conector.h"

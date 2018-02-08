@@ -1,7 +1,13 @@
 /**
- * @autor  Gabriel Lopes
- * @email   gabrielrrlopes@gmail.com
- **/
+* conector.c
+*
+* Purpose: Este arquivo contém funções que trata a conexão com o banco.
+*
+* Author: Gabriel Lopes <gabrielrrlopes@gmail.com>
+*
+* Date: Fevereiro 2018
+*
+**/
 #ifndef _SELETOR_H
 #define _SELETOR_H
 #include <stdio.h>

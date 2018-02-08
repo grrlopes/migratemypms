@@ -1,7 +1,11 @@
 /**
- * @autor  Gabriel Lopes
- * @email   gabrielrrlopes@gmail.com
- **/
+* conector.h
+*
+* Author: Gabriel Lopes <gabrielrrlopes@gmail.com>
+*
+* Date: Fevereiro 2018
+*
+**/
 typedef struct credencial Credencial;
 
 Credencial *credencial(const char *login, const char *addrs, const char *senha, const char *schema);

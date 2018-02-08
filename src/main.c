@@ -10,12 +10,12 @@
 #include "conector.h"
 #include "seletor.h"
 
-typedef struct main_temp{
+typedef struct st_credent_t{
   const char *login,
   *addrs,
   *senha,
   *schema;
-} main_temp_t;
+} credent_temp_t;
 
 int main(int argc, char *argv[]){
   char *filess = "config/config.json";
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]){
   int tipo_valor;
   struct json_object *json_objeto, *tmp, *aux_json;
 
-  main_temp_t *temp_crendent = (main_temp_t*) malloc(sizeof(main_temp_t));;
+  credent_temp_t *temp_crendent = (credent_temp_t*) malloc(sizeof(credent_temp_t));
 
   get_arquivo_ext(filess, &bufferr);
 
@@ -74,5 +74,6 @@ int main(int argc, char *argv[]){
   mysql_close(cnx);
 
   free(credent);
+  free(bufferr);
   return 0;
 }
